@@ -1,0 +1,1 @@
+var express=require("express"),res=express.response;res.message=function(s,e){e=e||"info";var r=this.req.session;r.messages=r.messages||[],r.messages.push({type:e,string:s})},res.error=function(s){return this.message(s,"error")},module.exports=function(s,e,r){e.locals.messages=s.session.messages||[],e.locals.removeMessages=function(){s.session.messages=[]},r()};

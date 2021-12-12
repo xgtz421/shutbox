@@ -1,0 +1,27 @@
+{
+  "name": "shutbox",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node --inspect=9800 ./bin/www"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-basic-auth": "^1.2.0",
+    "express-session": "^1.17.2",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "redis": "^0.7.2"
+  },
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-ejs": "^5.1.0",
+    "gulp-uglify": "^3.0.2"
+  }
+}

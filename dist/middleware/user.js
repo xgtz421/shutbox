@@ -1,0 +1,1 @@
+var User=require("../lib/user");module.exports=function(s,o,u){s.remoteUser&&(o.locals.user=s.remoteUser,console.log("*********req.remoteUser:",s.remoteUser));var e=s.session.uid;if(!e)return u();User.get(e,(e,r)=>e?u(e):(s.user=o.locals.user=r,void u()))};
