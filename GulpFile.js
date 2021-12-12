@@ -3,6 +3,7 @@ var ejs = require('gulp-ejs');
 var log = require('fancy-log')
 var uglify = require('gulp-uglify');
 var del = require('del');
+var bSync = require('browser-sync');
 
 
 gulp.task('clean', function() {
@@ -46,6 +47,14 @@ gulp.task('package', function() {
 });
 
 
+gulp.task('server', function(done) {
+    bSync({
+        server: {
+            baseDir: ['dist']
+        }
+    });
+    done();
+});
 
 gulp.task('default', 
     gulp.series('clean', 
