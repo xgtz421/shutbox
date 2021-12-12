@@ -4,6 +4,12 @@ var log = require('fancy-log')
 var uglify = require('gulp-uglify');
 var del = require('del');
 
+
+gulp.task('clean', function() {
+    return del(['dist']);
+});
+
+
 gulp.task('entrance', function() {
     return gulp.src('bin/www')
         .pipe(gulp.dest('dist/bin'));
@@ -34,13 +40,14 @@ gulp.task('ejs', function(){
         .pipe(gulp.dest('dist/views'));
 });
 
-gulp.task('clean', function() {
-    return del(['dist']);
+gulp.task('package', function() {
+    return gulp.src('package.json')
+        .pipe(gulp.dest('dist'));
 });
 
 
 
 gulp.task('default', 
     gulp.series('clean', 
-        gulp.parallel('scripts', 'styles', 'entrance')
+        gulp.parallel('scripts', 'styles', 'ejs','package', 'entrance')
     ));
